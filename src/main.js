@@ -1,4 +1,39 @@
-import { createApp } from 'vue'
+import {
+    createApp
+} from 'vue'
 import App from './App.vue'
+import router from './router'
 
-createApp(App).mount('#app')
+// css
+import '@css/varuables.css'
+import '@css/result.scss'
+import '@css/skeleton.css'
+
+app = createApp(App)
+
+// api
+import api from './api';
+app.config.globalProperties.$api = api;
+
+// config
+app.config.globalProperties.$window = window
+app.config.globalProperties.$document = document
+
+// mixin
+import Mixins from './utils/mixins';
+app.mixin(Mixins)
+
+// components
+import {
+    loadAllComponents
+} from '@/components/components'
+loadAllComponents(app)
+
+// plugins
+import {
+    loadAllPlugins
+} from '@/plugins/index'
+loadAllPlugins(app)
+
+app.use(router)
+app.mount('#app')
