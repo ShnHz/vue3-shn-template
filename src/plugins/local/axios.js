@@ -1,5 +1,4 @@
 import axios from "axios";
-import qs from 'qs'
 
 // 中断重复请求
 const pendingRequest = new Map();
@@ -11,7 +10,7 @@ function generateReqKey(config) {
     params,
     data
   } = config;
-  return [method, url, qs.stringify(params), qs.stringify(data)].join(
+  return [method, url, JSON.stringify(params), JSON.stringify(data)].join(
     "&"
   );
 }
