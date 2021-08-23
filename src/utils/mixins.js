@@ -2,11 +2,12 @@
  * @Author: sanghangning 
  * @Date: 2019-12-11 10:46:35 
  * @Last Modified by: sanghangning
- * @Last Modified time: 2021-08-10 17:53:51
+ * @Last Modified time: 2021-08-23 14:30:45
  */
 
 // directives
 import directives from './directives/directives.js'
+import { ClickOutside } from 'element-plus/lib/directives'
 
 // filters
 import numberFilters from './filters/numberFilters.js'
@@ -22,7 +23,8 @@ import formatMethods from './methods/formatMethods.js'
 
 const mixins = {
     directives: {
-        ...directives
+        ...directives,
+        clickoutside: ClickOutside,
     },
     filters: {
         ...numberFilters,

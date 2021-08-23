@@ -3,13 +3,19 @@ import {
 } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
+app = createApp(App)
+window.$vueApp = app
+app.use(store)
+app.use(router)
 
 // css
 import '@css/varuables.css'
 import '@css/result.scss'
 import '@css/skeleton.css'
+import '@/assets/iconfont/shn-ui/iconfont.css'
 
-app = createApp(App)
+
 
 // api
 import api from './api';
